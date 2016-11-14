@@ -1,4 +1,4 @@
-FROM php:5.6.26-fpm
+FROM php:5.6.27-fpm
 MAINTAINER Jerome Wang
 
 # modify apt repository to fastest mirrors
