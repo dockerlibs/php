@@ -1,4 +1,4 @@
-FROM php:5.6.29-fpm
+FROM php:5.6.28-fpm
 MAINTAINER Jerome Wang
 
 # apt install dependencies for php extensions
