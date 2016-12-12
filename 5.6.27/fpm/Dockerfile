@@ -1,13 +1,6 @@
 FROM php:5.6.27-fpm
 MAINTAINER Jerome Wang
 
-# modify apt repository to fastest mirrors
-# RUN { \
-#   echo 'deb http://mirrors.aliyun.com/debian jessie main'; \
-#   echo 'deb http://mirrors.aliyun.com/debian jessie-updates main'; \
-#   echo 'deb http://mirrors.aliyun.com/debian-security/ jessie/updates main'; \
-#   } > /etc/apt/sources.list
-
 # apt install dependencies for php extensions
 RUN apt-get update \
   && apt-get install -y \
@@ -30,10 +23,10 @@ RUN docker-php-ext-install \
   && pecl install memcached \
   && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
 
-# install extension for phalcon (version = 2.0.13)
+# install extension for phalcon
 RUN git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
   && cd /tmp/cphalcon \
-  && git checkout v3.0.1 \
+  && git checkout v3.0.2 \
   && cd /tmp/cphalcon/build \
   && ./install 64bits \
   && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
