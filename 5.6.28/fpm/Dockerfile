@@ -20,7 +20,7 @@ RUN docker-php-ext-install \
       mysql \
       pdo_mysql \
   && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-  && pecl install memcached \
+  && pecl install memcached-2.2.0 \
   && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
 
 # install extension for phalcon
