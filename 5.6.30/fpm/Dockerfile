@@ -26,7 +26,7 @@ RUN docker-php-ext-install \
 # install extension for phalcon
 RUN git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
   && cd /tmp/cphalcon \
-  && git checkout v3.0.4 \
+  && git checkout v3.1.2 \
   && cd /tmp/cphalcon/build \
   && ./install 64bits \
   && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
