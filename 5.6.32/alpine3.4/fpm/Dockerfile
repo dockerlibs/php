@@ -37,12 +37,12 @@ RUN set -xe \
   && pecl install memcached-2.2.0 \
   && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini \
   # :~
-  # && git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
-  # && cd /tmp/cphalcon \
-  # && git checkout v3.2.4 \
-  # && cd /tmp/cphalcon/build \
-  # && ./install 64bits \
-  # && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
+  && git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
+  && cd /tmp/cphalcon \
+  && git checkout v3.2.4 \
+  && cd /tmp/cphalcon/build \
+  && ./install 64bits \
+  && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
   # :~
   && docker-php-ext-install \
     gd \

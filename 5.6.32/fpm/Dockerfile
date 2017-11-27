@@ -25,12 +25,12 @@ RUN docker-php-ext-install \
   && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
 
 # install extension for phalcon
-#RUN git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
-#  && cd /tmp/cphalcon \
-#  && git checkout v3.2.4 \
-#  && cd /tmp/cphalcon/build \
-#  && ./install 64bits \
-#  && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
+RUN git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
+  && cd /tmp/cphalcon \
+  && git checkout v3.2.4 \
+  && cd /tmp/cphalcon/build \
+  && ./install 64bits \
+  && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini
 
 # clean
 RUN apt-get remove git -y \
