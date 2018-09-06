@@ -1,4 +1,4 @@
-FROM php:5.6.37-fpm
+FROM php:5.6.37-fpm-jessie
 MAINTAINER Jerome Wang
 
 # apt install dependencies for php extensions
