@@ -12,7 +12,12 @@ RUN apt-get update \
       git
 
 # install php extensions
-RUN docker-php-ext-install \
+RUN docker-php-ext-configure gd \
+      --enable-gd-native-ttf \
+      --with-freetype-dir=/usr/include/freetype2 \
+      --with-jpeg-dir=/usr/include \
+      --with-png-dir=/usr/include \
+  && docker-php-ext-install \
       gd \
       iconv \
       mbstring \
@@ -20,7 +25,6 @@ RUN docker-php-ext-install \
       mysql \
       pdo_mysql \
       zip \
-  && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
   && pecl install memcached-2.2.0 \
   && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/memcached.ini
 
