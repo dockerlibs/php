@@ -20,11 +20,11 @@ RUN apt-get update -q -y \
         libicu57 \
         libxslt1.1 \
         libmemcachedutil2 \
-        libmagickwand-dev \
 # git & unzip needed for composer, unless we document to use dev image for composer install
 # unzip needed due to https://github.com/composer/composer/issues/4471
         unzip \
         git \
+    && apt-get install -q -y libmagickwand-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install and configure php plugins
