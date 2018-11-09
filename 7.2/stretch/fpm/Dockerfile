@@ -5,12 +5,10 @@ MAINTAINER Jerome Wang
 RUN apt-get update \
   && apt-get install -y \
       libmagickwand-dev \
-      libmcrypt-dev \
       libmemcached-dev
 
 # install php extensions
 RUN pecl update-channels \
-  && pecl install mcrypt \
   && pecl install memcached \
   && docker-php-ext-enable memcached \
   && pecl install imagick \
