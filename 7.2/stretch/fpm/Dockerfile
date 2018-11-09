@@ -9,7 +9,8 @@ RUN apt-get update \
       libmemcached-dev
 
 # install php extensions
-RUN pecl install mcrypt \
+RUN pecl update-channels \
+  && pecl install mcrypt \
   && pecl install memcached \
   && docker-php-ext-enable memcached \
   && pecl install imagick \
@@ -27,7 +28,8 @@ RUN pecl install mcrypt \
 RUN apt-get autoremove -y \
   && apt-get clean \
   && rm -r /var/lib/apt/lists/* \
-  && rm -rf /tmp/*
+  && rm -rf /tmp/* \
+  && rm -rf /tmp/pear ~/.pearrc
 
 EXPOSE 9000
 
