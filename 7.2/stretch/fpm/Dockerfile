@@ -9,12 +9,7 @@ RUN apt-get update \
       libmemcached-dev
 
 # install php extensions
-RUN docker-php-ext-install \
-      iconv \
-      mbstring \
-      mcrypt \
-      mysql \
-      pdo_mysql \
+RUN pecl install mcrypt \
   && pecl install memcached \
   && docker-php-ext-enable memcached \
   && pecl install imagick \
