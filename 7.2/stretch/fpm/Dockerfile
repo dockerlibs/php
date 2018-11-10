@@ -20,6 +20,7 @@ RUN apt-get update -q -y \
         libicu57 \
         libxslt1.1 \
         libmemcachedutil2 \
+        libmagickwand-6.q16-3 \
 # git & unzip needed for composer, unless we document to use dev image for composer install
 # unzip needed due to https://github.com/composer/composer/issues/4471
         unzip \
@@ -38,6 +39,7 @@ RUN set -xe \
         libicu-dev \
         libxslt1-dev \
         libmemcached-dev \
+        libmagickwand-dev \
     " \
     && apt-get update -q -y && apt-get install -q -y --no-install-recommends $buildDeps && rm -rf /var/lib/apt/lists/* \
 # Extract php source and install missing extensions
