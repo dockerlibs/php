@@ -29,7 +29,9 @@ RUN docker-php-ext-configure gd \
   && pecl install memcached-2.2.0 \
   && docker-php-ext-enable memcached \
   && pecl install imagick \
-  && docker-php-ext-enable imagick
+  && docker-php-ext-enable imagick \
+  && pecl install redis \
+  && docker-php-ext-enable redis
 
 # install extension for phalcon
 RUN git clone https://github.com/phalcon/cphalcon /tmp/cphalcon \
