@@ -10,7 +10,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*; \
     git clone -b v${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git /usr/src/php/ext/phalcon; \
     cd /usr/src/php/ext/phalcon/build; \
-    sh install --arch 64bits; \
+    bash install --arch 64bits; \
     docker-php-ext-enable phalcon; \
     rm -rf /usr/src/php/ext/phalcon; \
     apt-get purge --auto-remove ${PHALCON_DEPS}; \
