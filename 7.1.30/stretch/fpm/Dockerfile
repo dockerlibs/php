@@ -13,7 +13,7 @@ RUN set -eux; \
     bash install --arch 64bits; \
     docker-php-ext-enable phalcon; \
     rm -rf /usr/src/php/ext/phalcon; \
-    apt-get purge --auto-remove ${PHALCON_DEPS}; \
+    apt-get purge -y --auto-remove ${PHALCON_DEPS}; \
     \
     pecl update-channels; \
     pecl install swoole; \
