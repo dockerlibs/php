@@ -15,7 +15,8 @@ RUN set -eux; \
     rm -rf /usr/src/php/ext/phalcon; \
     pecl update-channels; \
     pecl install swoole; \
-    docker-php-ext-enable swoole; \
+    docker-php-ext-install php_mysql; \
+    docker-php-ext-enable swoole php_mysql; \
     rm -rf /tmp/* ~/.pearrc; \
     apt-get purge -y --auto-remove ${PHALCON_DEPS}
 
