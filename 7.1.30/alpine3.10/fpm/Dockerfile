@@ -17,7 +17,7 @@ RUN set -eux; \
         apk add --update icu; \
         apk add --no-cache --virtual .ext-deps ${EXT_DEPS}; \
         pecl install redis; \
-        docker-php-ext-install pdo_mysql redis; \
+        docker-php-ext-install pdo_mysql; \
         apk del .ext-deps
 
 # ~ # php.extension = redis
