@@ -1,7 +1,7 @@
 # via https://github.com/docker-library/php/blob/250c2d872d4d52770ecdcecd0ff299c360031ed8/7.1/alpine3.10/fpm/Dockerfile
 FROM php:7.1.30-fpm-alpine3.10
 
-ENV EXT_DEPS icu-dev
+ENV EXT_DEPS icu-dev autoconf
 # php.extension = redis
 # ~ ENV PHPREDIS_VERSION 4.3.0
 # ~ ENV PHPREDIS_URL="https://github.com/phpredis/phpredis/archive/${PHPREDIS_VERSION}.tar.gz"
