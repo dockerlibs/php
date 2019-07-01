@@ -5,21 +5,21 @@ ENV PHALCON_VERSION=3.4.3
 ENV PHALCON_DEPS autoconf g++ make git
 
 RUN set -eux; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends ${PHALCON_DEPS}; \
-    rm -rf /var/lib/apt/lists/*; \
-    git clone -b v${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git /usr/src/php/ext/phalcon; \
-    cd /usr/src/php/ext/phalcon/build; \
-    bash install --arch 64bits; \
-    docker-php-ext-enable phalcon; \
-    rm -rf /usr/src/php/ext/phalcon; \
-    docker-php-ext-install pdo_mysql; \
-    docker-php-ext-enable pdo_mysql; \
-    pecl update-channels; \
-    pecl install swoole; \
-    docker-php-ext-enable swoole; \
-    rm -rf /tmp/* ~/.pearrc; \
-    apt-get purge -y --auto-remove ${PHALCON_DEPS}
+        apt-get update; \
+        apt-get install -y --no-install-recommends ${PHALCON_DEPS}; \
+        rm -rf /var/lib/apt/lists/*; \
+        git clone -b v${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git /usr/src/php/ext/phalcon; \
+        cd /usr/src/php/ext/phalcon/build; \
+        bash install --arch 64bits; \
+        docker-php-ext-enable phalcon; \
+        rm -rf /usr/src/php/ext/phalcon; \
+        docker-php-ext-install pdo_mysql; \
+        docker-php-ext-enable pdo_mysql; \
+        pecl update-channels; \
+        pecl install swoole; \
+        docker-php-ext-enable swoole; \
+        rm -rf /tmp/* ~/.pearrc; \
+        apt-get purge -y --auto-remove ${PHALCON_DEPS}
 
 EXPOSE 9000
 CMD ["php-fpm"]
