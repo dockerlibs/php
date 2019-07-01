@@ -12,10 +12,7 @@ RUN set -eux; \
     cd /usr/src/php/ext/phalcon/build; \
     bash install --arch 64bits; \
     docker-php-ext-enable phalcon; \
-    rm -rf /usr/src/php/ext/phalcon
-
-
-RUN set -eux; \
+    rm -rf /usr/src/php/ext/phalcon; \
     pecl update-channels; \
     pecl install swoole; \
     docker-php-ext-enable swoole; \
