@@ -16,6 +16,8 @@ RUN set -eux; \
         docker-php-ext-install pdo_mysql; \
         docker-php-ext-enable pdo_mysql; \
         pecl update-channels; \
+        pecl install redis; \
+        docker-php-ext-enable redis; \
         pecl install swoole; \
         docker-php-ext-enable swoole; \
         rm -rf /tmp/* ~/.pearrc; \
