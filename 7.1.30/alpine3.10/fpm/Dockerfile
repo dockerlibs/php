@@ -34,7 +34,7 @@ RUN set -eux; \
         apk add --no-cache --virtual .phalcon-deps ${PHALCON_DEPS}; \
         git clone -b v${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git /usr/src/php/ext/phalcon; \
         cd /usr/src/php/ext/phalcon/build; \
-        bash install --arch 64bits; \
+        sh install --arch 64bits; \
         docker-php-ext-enable phalcon; \
         rm -rf /usr/src/php/ext/phalcon; \
         apk del .phalcon-deps
