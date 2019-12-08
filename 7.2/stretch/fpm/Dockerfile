@@ -2,7 +2,7 @@
 FROM php:7.2.25-fpm-stretch
 
 ENV PHALCON_VERSION=3.4.5
-ENV PHALCON_DEPS autoconf g++ make git
+ENV PHALCON_DEPS autoconf g++ make git libmagickwand-dev
 
 RUN set -eux; \
     apt-get update; \
