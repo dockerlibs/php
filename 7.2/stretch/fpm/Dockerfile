@@ -14,6 +14,8 @@ RUN set -eux; \
     docker-php-ext-enable phalcon; \
     rm -rf /usr/src/php/ext/phalcon; \
     pecl update-channels; \
+    docker-php-ext-install pdo_mysql; \
+    docker-php-ext-enable pdo_mysql; \
     pecl install redis; \
     docker-php-ext-enable redis; \
     pecl install imagick; \
