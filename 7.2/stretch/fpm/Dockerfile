@@ -8,19 +8,18 @@ RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends ${PHALCON_DEPS}; \
     rm -rf /var/lib/apt/lists/*; \
-    \
     git clone -b v${PHALCON_VERSION} https://github.com/phalcon/cphalcon.git /usr/src/php/ext/phalcon; \
     cd /usr/src/php/ext/phalcon/build; \
     bash install --arch 64bits; \
     docker-php-ext-enable phalcon; \
     rm -rf /usr/src/php/ext/phalcon; \
-    \
     pecl update-channels; \
-    pecl install swoole; \
-    docker-php-ext-enable swoole; \
+    pecl install redis; \
+    docker-php-ext-enable redis; \
     pecl install imagick; \
     docker-php-ext-enable imagick; \
-    \
+    pecl install swoole; \
+    docker-php-ext-enable swoole; \
     apt-get purge -y --auto-remove ${PHALCON_DEPS}; \
     rm -rf /tmp/* ~/.pearrc
 
