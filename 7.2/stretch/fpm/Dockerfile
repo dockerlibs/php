@@ -21,7 +21,7 @@ RUN set -eux; \
     pecl install imagick; \
     docker-php-ext-enable imagick; \
     \
-    apt-get purge --auto-remove ${PHALCON_DEPS}; \
+    apt-get purge -y --auto-remove ${PHALCON_DEPS}; \
     rm -rf /tmp/* ~/.pearrc
 
 EXPOSE 9000
