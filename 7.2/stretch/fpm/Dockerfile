@@ -15,7 +15,6 @@ RUN set -eux; \
     bash install --arch 64bits; \
     docker-php-ext-enable phalcon; \
     rm -rf /usr/src/php/ext/phalcon; \
-    apt-get purge -y --auto-remove ${PHALCON_DEPS}; \
     pecl update-channels; \
     docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable pdo_mysql; \
@@ -25,6 +24,7 @@ RUN set -eux; \
     docker-php-ext-enable imagick; \
     pecl install swoole; \
     docker-php-ext-enable swoole; \
+    apt-get purge -y --auto-remove ${PHALCON_DEPS}; \
     rm -rf /tmp/* ~/.pearrc
 
 EXPOSE 9000
