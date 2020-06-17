@@ -9,7 +9,7 @@ FROM php:7.2.31-fpm-stretch
 # - redis
 # - swoole
 
-ENV PHP_EXT__DEPS autoconf g++ make git 
+ENV PHP_EXT__DEPS autoconf g++ make git
 ENV PHP_EXT_PHALCON_DEPS libmagickwand-dev
 
 RUN set -eux; \
@@ -23,7 +23,7 @@ RUN set -eux; \
     pecl install redis-5.2.2; \
     pecl install swoole-4.5.2; \
     docker-php-ext-install pdo_mysql; \
-    docker-php-ext-enable imagick pdo_mysql psr phalcon redis swoole; \
+    docker-php-ext-enable imagick psr phalcon redis swoole; \
     apt-get purge -y --auto-remove ${PHP_EXT__DEPS}; \
     rm -rf /tmp/* ~/.pearrc
 

@@ -13,7 +13,7 @@ __fn_git() {
         exit 1
       fi
 
-      echo "saving   tag = ${tag}"
+      echo "saving   tag(${tag})"
       git tag -a ${tag} -m "tag ${tag}"
       ;;
     remove)
@@ -24,21 +24,45 @@ __fn_git() {
         exit 1
       fi
 
-      echo "removing tag = ${tag}"
-      git tag | grep "${v}" && git tag -d ${v}
+      echo "removing tag(${tag})"
+      
+      v=`git tag | grep "${tag}"`
+
+      if [ -z "${v}" ]; then
+        echo "tag(${tag}) does not exist"
+        exit 1
+      fi
+
+      git tag -d ${tag}
       git push origin --delete ${tag}
       ;;
     push)
-      echo "pushing  tag = ${tag}"
+      echo "pushing  tag(${tag})"
       git push && git push --tags
       ;;
   esac
 }
 
-# docker build -f 7.4/alpine3.12/fpm/Dockerfile -t dot1024/docker-php:7.4-testing .
+__fn_git_muli_op() {
+  tag=$1
+  __fn_git remove "${tag}"
+  __fn_git save   "${tag}"
+  __fn_git push
+}
+
+
+__fn_build() {
+  docker build -f 7.4/buster/fpm/Dockerfile -t dot:7.4-testing .
+}
 
 # __main__
-_tag=`cat ${__DIR__}/.cmd_tag`
-__fn_git remove "${_tag}"
-__fn_git save   "${_tag}"
-# __fn_git push
+case "$1" in
+  build)
+    __fn_build
+    ;;
+  *)
+    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.0`
+    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.1`
+    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.2`
+    ;;
+esac
