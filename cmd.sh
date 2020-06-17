@@ -28,13 +28,11 @@ __fn_git() {
       
       v=`git tag | grep "${tag}"`
 
-      if [ -z "${v}" ]; then
-        echo "tag(${tag}) does not exist"
-        exit 1
+      if [ ! -z "${v}" ]; then
+        git tag -d ${tag}
+        git push origin --delete ${tag}
       fi
 
-      git tag -d ${tag}
-      git push origin --delete ${tag}
       ;;
     push)
       echo "pushing  tag(${tag})"
@@ -61,8 +59,16 @@ case "$1" in
     __fn_build
     ;;
   *)
-    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.0`
-    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.1`
-    __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.2`
+    # __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.0`
+    # __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.1`
+    # __fn_git_muli_op `cat ${__DIR__}/.cmd_tag.2`
+
+    t0=`cat ${__DIR__}/.cmd_tag.0`
+    t1=`cat ${__DIR__}/.cmd_tag.1`
+    t2=`cat ${__DIR__}/.cmd_tag.2`
+    __fn_git remove "${t0}" && __fn_git save   "${t0}"
+    __fn_git remove "${t1}" && __fn_git save   "${t1}"
+    __fn_git remove "${t2}" && __fn_git save   "${t2}"
+    __fn_git push
     ;;
 esac

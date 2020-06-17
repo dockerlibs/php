@@ -24,6 +24,7 @@ RUN set -eux; \
     pecl install swoole-4.5.2; \
     docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable imagick psr phalcon redis swoole; \
+    docker-php-source delete; \
     apt-get purge -y --auto-remove ${PHP_EXT__DEPS}; \
     rm -rf /tmp/* ~/.pearrc
 

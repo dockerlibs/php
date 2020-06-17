@@ -25,6 +25,7 @@ RUN set -eux; \
     pecl install redis-5.2.2;   \
     pecl install swoole-4.5.2;  \
     docker-php-ext-enable imagick psr phalcon redis swoole; \
+    docker-php-source delete; \
     apt-get purge -y --auto-remove ${PHP_EXT_BUILD_DEPS}; \
     rm -rf /tmp/pear ~/.pearrc
 
