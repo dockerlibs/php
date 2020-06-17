@@ -9,7 +9,7 @@ FROM php:7.2.31-fpm-stretch
 # - redis
 # - swoole
 
-ENV PHP_EXT__DEPS autoconf g++ make git
+ENV PHP_EXT__DEPS autoconf g++ make
 ENV PHP_EXT_PHALCON_DEPS libmagickwand-dev
 
 RUN set -eux; \

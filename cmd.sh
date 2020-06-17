@@ -36,7 +36,8 @@ __fn_git() {
       ;;
     push)
       echo "pushing  tag(${tag})"
-      git push && git push --tags
+      # git push && git push --tags
+      git push --tags
       ;;
   esac
 }
@@ -66,9 +67,9 @@ case "$1" in
     t0=`cat ${__DIR__}/.cmd_tag.0`
     t1=`cat ${__DIR__}/.cmd_tag.1`
     t2=`cat ${__DIR__}/.cmd_tag.2`
-    __fn_git remove "${t0}" && __fn_git save   "${t0}"
-    __fn_git remove "${t1}" && __fn_git save   "${t1}"
-    __fn_git remove "${t2}" && __fn_git save   "${t2}"
+    __fn_git remove "${t0}" && __fn_git save "${t0}"
+    __fn_git remove "${t1}" && __fn_git save "${t1}"
+    __fn_git remove "${t2}" && __fn_git save "${t2}"
     __fn_git push
     ;;
 esac
