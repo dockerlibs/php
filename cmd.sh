@@ -36,8 +36,7 @@ __fn_git() {
       ;;
     push)
       echo "pushing  tag(${tag})"
-      # git push && git push --tags
-      git push --tags
+      git push && git push --tags
       ;;
   esac
 }
