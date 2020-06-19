@@ -10,6 +10,7 @@ FROM php:7.3.19-fpm-buster
 # - swoole
 
 ENV BUILD_DEPS autoconf g++ make
+ENV BUILD_DEPS_REMOVED g++ make
 ENV RUNTIME_DEPS libmagickwand-dev
 
 RUN set -eux; \
@@ -25,5 +26,5 @@ RUN set -eux; \
     docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable imagick psr phalcon redis swoole; \
     docker-php-source delete; \
-    apt-get purge -y --auto-remove ${BUILD_DEPS}; \
+    apt-get purge -y --auto-remove ${BUILD_DEPS_REMOVED}; \
     rm -rf /tmp/* ~/.pearrc
