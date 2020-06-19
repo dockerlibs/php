@@ -3,18 +3,18 @@ README
 
 This is the Git Repo of Docker for **PHP**.
 
-The branch base debian buster
+The branch base debian stretch
 
 # Branch Name
 
-**7.2-fpm-buster**
+**7.3-fpm-stretch**
 
 format: **PHPVersion**-**RunType**-**BaseImage**
 
 
 # Base Version
 
-Debian Buster
+Debian stretch
 
 # PHP Version
 
