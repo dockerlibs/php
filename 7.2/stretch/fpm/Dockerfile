@@ -20,9 +20,6 @@ RUN set -eux; \
     bash install --arch 64bits; \
     rm -rf /usr/src/php/ext/phalcon \
     \
-    docker-php-ext-install pdo_mysql; \
-    docker-php-ext-enable pdo_mysql; \
-    \
     pecl update-channels;       \
     pecl install imagick-3.4.4; \
     pecl install redis-5.2.2;   \
