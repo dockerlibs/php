@@ -3,11 +3,11 @@ FROM php:7.4.7-fpm-buster
 
 # @PHP-extensions:
 # - imagick
+# - pdo_mysql
 # - psr
 # - phalcon
 # - redis
 # - swoole
-
 
 ENV BUILD_DEPS autoconf g++ make
 ENV RUNTIME_DEPS libmagickwand-dev
@@ -22,12 +22,8 @@ RUN set -eux; \
     pecl install phalcon-4.0.6; \
     pecl install redis-5.2.2;   \
     pecl install swoole-4.5.2;  \
+    docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable imagick psr phalcon redis swoole; \
     docker-php-source delete; \
     apt-get purge -y --auto-remove ${BUILD_DEPS}; \
     rm -rf /tmp/* ~/.pearrc
-
-STOPSIGNAL SIGQUIT
-
-EXPOSE 9000
-CMD ["php-fpm"]
