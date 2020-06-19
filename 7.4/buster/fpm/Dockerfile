@@ -8,6 +8,7 @@ FROM php:7.4.7-fpm-buster
 # - redis
 # - swoole
 
+
 ENV BUILD_DEPS autoconf g++ make
 ENV RUNTIME_DEPS libmagickwand-dev
 
