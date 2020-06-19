@@ -3,6 +3,8 @@ README
 
 This is the Git repository of Docker for **PHP**.
 
+@will-be-removed
+
 # Image information
 
 | ~ | ~ |
