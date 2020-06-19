@@ -3,5 +3,5 @@
 _php_version=7.2.25
 _run_type=fpm
 _base_image="stretch"
-_branch_name=${_php_version}-${_run_type}-${_base_image}
 _base_os="debian stretch"
+_branch_name=${_php_version}-${_run_type}-${_base_image}
