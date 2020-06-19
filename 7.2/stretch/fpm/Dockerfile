@@ -6,7 +6,6 @@ FROM php:7.2.25-fpm-stretch
 # - pdo_mysql
 # - phalcon
 # - redis
-# - swoole
 
 ENV BUILD_DEPS autoconf g++ make git
 ENV RUNTIME_DEPS libmagickwand-dev
@@ -22,9 +21,8 @@ RUN set -eux; \
     pecl update-channels; \
     pecl install imagick-3.4.4; \
     pecl install redis-5.2.2; \
-    pecl install swoole-4.5.2; \
     docker-php-ext-install pdo_mysql; \
-    docker-php-ext-enable imagick phalcon redis swoole; \
+    docker-php-ext-enable imagick phalcon redis; \
     docker-php-source delete; \
     apt-get purge -y --auto-remove ${BUILD_DEPS}; \
     rm -rf /tmp/* ~/.pearrc
