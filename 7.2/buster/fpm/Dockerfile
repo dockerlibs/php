@@ -3,6 +3,7 @@ FROM php:7.2.31-fpm-buster
 
 # @PHP-extensions:
 # - imagick
+# - pdo_mysql
 # - psr
 # - phalcon
 # - redis
