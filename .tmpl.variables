@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_php_version=7.4.7
+_php_version=7.4.8
 _run_type=fpm
 _base_image="buster"
 _base_os="debian buster"
