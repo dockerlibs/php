@@ -7,8 +7,8 @@ This is the Git repository of Docker for **PHP**.
 
 | ~ | ~ |
 | ----------- | ----------- |
-| **php version** | 7.4.8 |
-| **tag name**    | 7.4.8-fpm-buster |
+| **php version** | 7.4.10 |
+| **tag name**    | 7.4.10-fpm-buster |
 | **base os**     | debian buster     |
 | **run type**    | fpm    |
 
