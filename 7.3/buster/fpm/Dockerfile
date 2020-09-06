@@ -1,5 +1,5 @@
 # @via https://github.com/docker-library/php/blob/master/7.3/buster/fpm/Dockerfile
-FROM php:7.3.19-fpm-buster
+FROM php:7.3.22-fpm-buster
 
 # @PHP-extensions:
 # - imagick
