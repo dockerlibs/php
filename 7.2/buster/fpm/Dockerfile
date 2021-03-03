@@ -46,9 +46,11 @@ RUN set -eux; \
     pecl install redis-5.3.3;   \
 # install extension for swoole v4.6.3
     pecl install swoole-4.6.3;  \
+# install extension for bcmath
+    docker-php-ext-install bcmath; \
 # install extension for pdo_mysql
     docker-php-ext-install pdo_mysql; \
-    docker-php-ext-enable igbinary imagick lzf memcached msgpack phalcon psr redis swoole; \
+    docker-php-ext-enable bcmath igbinary imagick lzf memcached msgpack phalcon psr redis swoole; \
     docker-php-source delete; \
     apt-get purge -y --auto-remove ${BUILD_DEPS_REMOVED}; \
     rm -rf /tmp/* ~/.pearrc
