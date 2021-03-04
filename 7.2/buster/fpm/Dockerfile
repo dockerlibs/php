@@ -51,6 +51,7 @@ RUN set -eux; \
 # install extension for pdo_mysql
     docker-php-ext-install pdo_mysql; \
     docker-php-ext-enable bcmath igbinary imagick lzf memcached msgpack phalcon psr redis swoole; \
+    echo "extension=bcmath.so" > $PHP_INI_DIR/conf.d/docker-php-ext-bcmath.ini \
     docker-php-source delete; \
     apt-get purge -y --auto-remove ${BUILD_DEPS_REMOVED}; \
     rm -rf /tmp/* ~/.pearrc
